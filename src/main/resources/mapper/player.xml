@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.metacoding.test.domain.player.PlayerDao">
+
+
+
+	<select id="findAll"	resultType="site.metacoding.test.domain.player.Player">
+		SELECT * FROM player
+	</select>
+
+	<insert id="insert">
+		INSERT into player(name,teamId,position,createdAt) 
+		VALUES(#{name},#{teamId},#{position},now());
+	</insert>
+
+	<select id="findById" resultType="site.metacoding.test.domain.player.Player">
+		SELECT * FROM player WHERE id=#{id}
+	</select>
+
+	<update id="update">
+			UPDATE player SET name = #{name}, teamId = #{teamId}, position = #{position} WHERE id = #{id}
+	</update>
+
+	<delete id="deleteById">
+		DELETE FROM player WHERE id = #{id}
+	</delete>
+
+</mapper>
+
+
+
+
+
+

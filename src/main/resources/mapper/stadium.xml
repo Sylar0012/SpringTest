@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.metacoding.test.domain.stadium.StadiumDao">
+
+
+
+	<select id="findAll"	resultType="site.metacoding.test.domain.stadium.Stadium">
+		SELECT * FROM stadium
+	</select>
+
+	<insert id="insert">
+		INSERT into stadium(name,createdAt) VALUES(#{name},NOW())
+	</insert>
+
+	<select id="findById"
+		resultType="site.metacoding.test.domain.stadium.Stadium">
+		SELECT * FROM stadium WHERE id=#{id}
+	</select>
+
+	<update id="update">
+			UPDATE stadium SET name = #{name} WHERE id = #{id}
+	</update>
+
+	<delete id="deleteById">
+		DELETE FROM stadium WHERE id = #{id}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
