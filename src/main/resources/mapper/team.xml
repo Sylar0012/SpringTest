@@ -6,12 +6,12 @@
 
 
 
-	<select id="findAll"	resultType="site.metacoding.test.domain.team.Team">
-		SELECT * FROM team
+	<select id="findAll"	resultType="site.metacoding.test.web.dto.request.team.TeamListDto">
+		SELECT t.id, st.name AS stadiumName, st.Id as stadiumId, t.NAME, t.createdAt  FROM team t RIGHT OUTER JOIN stadium st ON t.stadiumid = st.id
 	</select>
 
 	<insert id="insert">
-		INSERT into team(stadiumId,name,createdAt) VALUES(#{stardiumId},#{name},now())
+		INSERT into team(stadiumId,name,createdAt) VALUES(#{stadiumId},#{name},now())
 	</insert>
 
 	<select id="findById"

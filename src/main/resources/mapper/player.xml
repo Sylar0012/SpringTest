@@ -6,8 +6,8 @@
 
 
 
-	<select id="findAll"	resultType="site.metacoding.test.domain.player.Player">
-		SELECT * FROM player
+	<select id="findAll"	resultType="site.metacoding.test.web.dto.request.player.PlayerListDto">
+		SELECT p.id, p.teamId , t.name AS teamname,p.position, p.name, p.createdAt FROM player p RIGHT OUTER JOIN team t ON p.teamId = t.id
 	</select>
 
 	<insert id="insert">

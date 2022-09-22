@@ -11,35 +11,16 @@ public class IndexController {
 		return "/main";
 	}
 
-	@GetMapping("/stardium/stardiumList")
-	public String stardiumList() {
-		return "/stardium/stardiumList";
-	}
 
-	@GetMapping("/stardium/stardiumSaveForm")
-	public String stardiumSaveForm() {
-		return "/stardium/stardiumSaveForm";
-	}
 
-	@GetMapping("/team/teamList")
-	public String teamList() {
-		return "/team/teamList";
-	}
 
-	@GetMapping("/team/teamSaveForm")
-	public String teamSaveForm() {
-		return"/team/teamSaveForm";
-	}
+
+
+
 	
-	@GetMapping("/player/playerList")
-	public String playerList() {
-		return "/player/playerList";
-	}
+
 	
-	@GetMapping("/player/playerSaveForm")
-	public String playerSaveForm() {
-		return "/player/playerSaveForm";
-	}
+
 	
 	@GetMapping("/team/teamPositionList")
 	public String teamPositionList() {
