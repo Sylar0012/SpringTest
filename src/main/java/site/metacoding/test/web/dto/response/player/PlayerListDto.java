@@ -1,4 +1,4 @@
-package site.metacoding.test.web.dto.request.player;
+package site.metacoding.test.web.dto.response.player;
 
 import java.sql.Timestamp;
 

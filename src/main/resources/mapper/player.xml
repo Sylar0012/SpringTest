@@ -6,21 +6,26 @@
 
 
 
-	<select id="findAll"	resultType="site.metacoding.test.web.dto.request.player.PlayerListDto">
-		SELECT p.id, p.teamId , t.name AS teamname,p.position, p.name, p.createdAt FROM player p RIGHT OUTER JOIN team t ON p.teamId = t.id
+	<select id="findAll"
+		resultType="site.metacoding.test.web.dto.response.player.PlayerListDto">
+		SELECT p.id, p.teamId , t.name AS teamname,p.position,
+		p.name, p.createdAt FROM player p RIGHT OUTER JOIN team t ON p.teamId
+		= t.id
 	</select>
 
 	<insert id="insert">
-		INSERT into player(name,teamId,position,createdAt) 
+		INSERT into player(name,teamId,position,createdAt)
 		VALUES(#{name},#{teamId},#{position},now());
 	</insert>
 
-	<select id="findById" resultType="site.metacoding.test.domain.player.Player">
+	<select id="findById"
+		resultType="site.metacoding.test.domain.player.Player">
 		SELECT * FROM player WHERE id=#{id}
 	</select>
 
 	<update id="update">
-			UPDATE player SET name = #{name}, teamId = #{teamId}, position = #{position} WHERE id = #{id}
+		UPDATE player SET name = #{name}, teamId = #{teamId}, position = #{position}
+		WHERE id = #{id}
 	</update>
 
 	<delete id="deleteById">

@@ -35,15 +35,15 @@
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="../stardium/stardiumList">경기장 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../stardium/stardiumSaveForm">경기장 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../team/teamList">팀 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../team/teamSaveForm">팀 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../player/playerList">선수 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../player/playerSaveForm">선수 등록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../team/teamPositionList">팀 별 포지션 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../player/outPlayerList">퇴출된 선수 목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="../player/playerOutForm">퇴출 사유 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/stardium/stardiumList">경기장 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/stardium/stardiumSaveForm">경기장 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team/teamList">팀 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team/teamSaveForm">팀 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/playerList">선수 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/playerSaveForm">선수 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/team/teamPositionList">팀 별 포지션 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/outPlayerList/1">퇴출된 선수 목록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/player/playerOutForm">퇴출 사유 등록</a></li>
 				</ul>
 			</div>
 		</div>

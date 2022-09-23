@@ -6,12 +6,16 @@
 
 
 
-	<select id="findAll"	resultType="site.metacoding.test.web.dto.request.team.TeamListDto">
-		SELECT t.id, st.name AS stadiumName, st.Id as stadiumId, t.NAME, t.createdAt  FROM team t RIGHT OUTER JOIN stadium st ON t.stadiumid = st.id
+	<select id="findAll"
+		resultType="site.metacoding.test.web.dto.response.team.TeamListDto">
+		SELECT t.id, st.name AS stadiumName, st.Id as stadiumId,
+		t.NAME, t.createdAt FROM team t RIGHT OUTER JOIN stadium st ON
+		t.stadiumid = st.id
 	</select>
 
 	<insert id="insert">
-		INSERT into team(stadiumId,name,createdAt) VALUES(#{stadiumId},#{name},now())
+		INSERT into team(stadiumId,name,createdAt)
+		VALUES(#{stadiumId},#{name},now())
 	</insert>
 
 	<select id="findById"
@@ -20,13 +24,22 @@
 	</select>
 
 	<update id="update">
-			UPDATE team SET stadiumId = #{stadiumId},name = #{name} WHERE id = #{id}
+		UPDATE team SET stadiumId = #{stadiumId},name = #{name} WHERE id = #{id}
 	</update>
 
 	<delete id="deleteById">
 		DELETE FROM team WHERE id = #{id}
 	</delete>
 
+	<select id="findPlayerByPosition"
+		resultType="site.metacoding.test.web.dto.response.team.TeamPositionDto">
+		SELECT POSITION,
+		MAX(if(teamId = 1,name,NULL)) dosan,
+		MAX(if(teamId = 2,name,NULL)) NC,
+		MAX(if(teamId = 3,name,NULL)) lotte
+		FROM player
+		GROUP BY position
+	</select>
 </mapper>
 
 

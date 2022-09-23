@@ -10,30 +10,8 @@ public class IndexController {
 	public String main() {
 		return "/main";
 	}
-
-
-
-
-
-
-
 	
 
 	
 
-	
-	@GetMapping("/team/teamPositionList")
-	public String teamPositionList() {
-		return "/team/teamPositionList";
-	}
-	
-	@GetMapping("/player/outPlayerList")
-	public String outPlayerList() {
-		return "/player/outPlayerList";
-	}
-	
-	@GetMapping("/player/playerOutForm")
-	public String playerOutForm() {
-		return "/player/playerOutForm";
-	}
 }

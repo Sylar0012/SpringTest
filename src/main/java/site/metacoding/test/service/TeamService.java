@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.test.domain.team.Team;
 import site.metacoding.test.domain.team.TeamDao;
-
-import site.metacoding.test.web.dto.request.team.TeamListDto;
 import site.metacoding.test.web.dto.request.team.TeamSaveDto;
+import site.metacoding.test.web.dto.request.team.TeamUpdateDto;
+import site.metacoding.test.web.dto.response.team.TeamListDto;
+import site.metacoding.test.web.dto.response.team.TeamPositionDto;
 
 
 @RequiredArgsConstructor
@@ -26,6 +27,19 @@ public class TeamService {
 		teamDao.insert(teamSaveDto);		
 	}
 	
+	public List<TeamPositionDto> 팀별포지션목록(){
+		List<TeamPositionDto> teamPositionList = teamDao.findPlayerByPosition();
+		return teamPositionList;
+	}
 	
+	public Team 한팀보기(Integer id) {
+		Team team =  teamDao.findById(id);
+		return team;	
+	}
 	
+	public void 팀수정(Integer id,TeamUpdateDto teamUpdateDto) {
+		Team teamPS = teamDao.findById(id);
+		teamPS.update(teamUpdateDto);
+		teamDao.update(teamPS);
+	}
 }

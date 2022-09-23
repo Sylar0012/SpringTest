@@ -34,7 +34,6 @@ create table player(
 
 create table outplayer(
    id int primary KEY AUTO_INCREMENT,
-   teamid INT,
    playerid INT,
    reason VARCHAR(50) NOT NULL,
    createdAt TIMESTAMP
