@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class PlayerUpdateDto {
 	private Integer id;
-	private Integer teamId;
 	private String name;
+	private Integer teamId;
 	private String position;
 }

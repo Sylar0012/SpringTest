@@ -7,7 +7,7 @@
 
 
 	<select id="findAll"	resultType="site.metacoding.test.domain.stadium.Stadium">
-		SELECT id, NAME ,DATE_FORMAT(createdAt, '%Y-%m-%d') createdAt FROM stadium
+		SELECT id, NAME ,createdAt FROM stadium
 	</select>
 
 	<insert id="insert">

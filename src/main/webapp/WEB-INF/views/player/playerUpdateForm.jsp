@@ -3,7 +3,7 @@
 <%@ include file="../layout/header.jsp"%>
 
 <br />
-<h2 style="text-align: center">선수 등록</h2>
+<h2 style="text-align: center">선수 수정</h2>
 <br />
 <div class="container">
 	<form>
@@ -22,14 +22,16 @@
 				</c:forEach>
 			</select>
 			<div style="width: 300px">
-				<input id="playerName" class="form-control" placeholder="선수이름 작성" value="${player.name }"/>
+				<input id="playerName" class="form-control" placeholder="선수이름 작성" value="${player.name}"/>
 			</div>
 			<button id="btnUpdate" type="button" class="btn btn-primary">등록</button>
 		</div>
 	</form>
 </div>
 
-<script>
+<script >
+
+
 	$("#btnUpdate").click(()=>{
 		playerUpdate();
 	});
@@ -40,8 +42,9 @@
 		let data = {
 				name : $("#playerName").val(),
 				teamId : $("#team option:selected").val(),
-				positon : $("#position option:selected").val()
+				position : $("#position option:selected").val()
 		};
+		console.log(data);
 		let id = $("#playerId").val();
 		$.ajax("/player/update/"+id,{
 			type : "PUT",
@@ -57,6 +60,6 @@
 			}
 		});
 	}
-		
+</script>
 
 <%@ include file="../layout/footer.jsp"%>

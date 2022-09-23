@@ -39,7 +39,7 @@
 		let data = {
 				name : $("#playerName").val(),
 				teamId : $("#team option:selected").val(),
-				positon : $("#position option:selected").val()
+				position : $("#position option:selected").val()
 		};
 		
 		$.ajax("/player/playerSave",{
@@ -56,6 +56,6 @@
 			}
 		});
 	}
-		
+</script>
 
 <%@ include file="../layout/footer.jsp"%>

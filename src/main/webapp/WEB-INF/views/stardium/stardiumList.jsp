@@ -35,7 +35,7 @@
 	</table>
 </div>
 
-<script type="text/javascript">
+<script >
 $("#btnDelete").click(()=>{
 	 function jqueryTest() {
 		    let str = "";  
