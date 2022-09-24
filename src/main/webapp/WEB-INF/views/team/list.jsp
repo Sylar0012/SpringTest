@@ -26,8 +26,8 @@
 						<td>${TeamListDto.createdAt }</td>
 						<td><a href="/team/updateForm/${TeamListDto.id}"><i
 								class="fa-solid fa-gears"></i></a></td>
-						<td><label> <input id="stadiumId" type="checkbox"
-								value="${stadium.id}">
+						<td><label> <input id="teamId" type="checkbox"
+								value="${TeamListDto.id}">
 						</label></td>
 					</tr>
 				</c:forEach>
@@ -37,5 +37,34 @@
 		</tbody>
 	</table>
 </div>
+
+<script>
+
+$("#btnDelete").click(()=>{
+	teamDelete();	
+})
+
+function teamDelete(){
+	let teamArr = [];
+	$("input:checkbox[id='teamId']:checked").each(function() {
+		teamArr.push($(this).val()); 
+	})
+	
+	for(let i =0; i<teamArr.length; i++){
+		let id = teamArr[i];
+		console.log(id);
+		
+	$.ajax("/team/delete/"+id, {
+		type : "DELETE",
+		dataType : "json"
+	}).done((res) =>{
+		if(res.code == 1){
+			alert("팀 삭제 성공");
+			location.href = "/team/list";
+		}
+	});
+	}
+}
+</script>
 
 <%@ include file="../layout/footer.jsp"%>

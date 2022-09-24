@@ -37,7 +37,6 @@ $("select[id=stadium] option").each(function() {
 	
 
 	function teamUpdate(){
-
 		let data = {
 				stadiumId : $("#stadium option:selected").val(),
 				name : $("#teamName").val()

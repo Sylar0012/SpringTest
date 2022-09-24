@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OutPlayerList {
+public class OutPlayerListDto {
 	private Integer id;
 	private Integer teamId;
 	private String teamname;

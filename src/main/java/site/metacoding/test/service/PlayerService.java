@@ -39,4 +39,8 @@ public class PlayerService {
 		playerDao.update(playerPS);
 	}
 	
+	public void 선수삭제(Integer id) {
+		playerDao.deleteById(id);
+	}
+	
 }

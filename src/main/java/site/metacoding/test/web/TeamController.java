@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -72,5 +73,11 @@ public class TeamController {
 		Team teamPS = teamService.한팀보기(id);
 		teamService.팀수정(id, teamUpdateDto);
 		return new CMRespDto<>(1, "팀 수정 성공", null);
+	}
+	
+	@DeleteMapping("/team/delete/{id}")
+	public @ResponseBody CMRespDto<?> teamDelete(@PathVariable Integer id){
+		teamService.팀삭제(id);
+		return new CMRespDto<>(1, "팀 삭제 성공", null);
 	}
 }

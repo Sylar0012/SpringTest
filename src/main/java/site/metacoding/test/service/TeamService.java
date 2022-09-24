@@ -42,4 +42,8 @@ public class TeamService {
 		teamPS.update(teamUpdateDto);
 		teamDao.update(teamPS);
 	}
+	
+	public void 팀삭제(Integer id) {
+		teamDao.deleteById(id);
+	}
 }

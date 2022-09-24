@@ -18,16 +18,18 @@
 			<form>
 				<c:forEach var="stadium" items="${stadiumList}">
 					<tr>
-						<td>${stadium.id }</td>
+						<c:set var="count" value="${count+1}" />
+						<td>${count }</td>
 						<td>${stadium.name }</td>
 						<td>${stadium.createdAt }</td>
-						<td><a href="/stadium/updateForm/${stadium.id}"><i class="fa-solid fa-gears"></i></a></td>
+						<td><a href="/stadium/updateForm/${stadium.id}"><i
+								class="fa-solid fa-gears"></i></a></td>
 						<td><label> <input id="stadiumId" type="checkbox"
 								value="${stadium.id}">
 						</label></td>
 					</tr>
 				</c:forEach>
-				<button onclick="getCheckboxValue()" style="float: right; margin-right: 40px;" id="btnDelete"
+				<button style="float: right; margin-right: 40px;" id="btnDelete"
 					type="button" class="btn btn-primary">삭제</button>
 				<br />
 			</form>
@@ -35,5 +37,32 @@
 	</table>
 </div>
 
+<script type="text/javascript">
+$("#btnDelete").click(()=>{
+	stadiumDelete();	
+})
+
+function stadiumDelete(){
+	let stadiumIdArr = [];
+	$("input:checkbox[id='stadiumId']:checked").each(function() {
+		stadiumIdArr.push($(this).val()); 
+	})
+	
+	for(let i =0; i<stadiumIdArr.length; i++){
+		let id = stadiumIdArr[i];
+		console.log(id);
+		
+	$.ajax("/stadium/delete/"+id, {
+		type : "DELETE",
+		dataType : "json"
+	}).done((res) =>{
+		if(res.code == 1){
+			alert("스타티움 삭제 성공");
+			location.href = "/";
+		}
+	});
+	}
+}
+</script>
 
 <%@ include file="../layout/footer.jsp"%>

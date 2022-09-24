@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.test.domain.outPlayer.OutPlayerDao;
 import site.metacoding.test.domain.stadium.StadiumDao;
 import site.metacoding.test.web.dto.request.outPlayer.OutPlayerSaveDto;
-import site.metacoding.test.web.dto.response.player.OutPlayerList;
+import site.metacoding.test.web.dto.response.player.OutPlayerListDto;
 
 
 
@@ -19,12 +19,12 @@ public class OutPlayerService {
 	
 	private final OutPlayerDao outPlayerDao;
 
-	public List<OutPlayerList> 팀별퇴출선수목록(Integer teamId){
-		List<OutPlayerList> outPlayerList = outPlayerDao.findAllByTeamId(teamId);
+	public List<OutPlayerListDto> 팀별퇴출선수목록(Integer teamId){
+		List<OutPlayerListDto> outPlayerList = outPlayerDao.findAllByTeamId(teamId);
 		return outPlayerList;
 	}
-	public List<OutPlayerList> 퇴출선수목록( ){
-		List<OutPlayerList> outPlayerList = outPlayerDao.findAll();
+	public List<OutPlayerListDto> 퇴출선수목록( ){
+		List<OutPlayerListDto> outPlayerList = outPlayerDao.findAll();
 		return outPlayerList;
 	}
 	

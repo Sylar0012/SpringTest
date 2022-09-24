@@ -2,8 +2,6 @@ package site.metacoding.test.web;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.test.service.OutPlayerService;
-import site.metacoding.test.service.PlayerService;
 import site.metacoding.test.web.dto.request.outPlayer.OutPlayerSaveDto;
 import site.metacoding.test.web.dto.response.CMRespDto;
-import site.metacoding.test.web.dto.response.player.OutPlayerList;
+import site.metacoding.test.web.dto.response.player.OutPlayerListDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -27,14 +24,14 @@ public class OutPlayerController {
 	
 	@GetMapping("/outPlayer/list/{id}")
 	public String outPlayerList(@PathVariable Integer id, Model model) {
-		List<OutPlayerList> outPlayerList = outPlayerService.팀별퇴출선수목록(id);
+		List<OutPlayerListDto> outPlayerList = outPlayerService.팀별퇴출선수목록(id);
 		model.addAttribute("outPlayerList",outPlayerList);
 		return "outPlayer/list";
 	}
 	
 	@GetMapping("/outPlayer/saveForm")
 	public String playerOutForm(Model model) {
-		List<OutPlayerList> outPlayerList = outPlayerService.퇴출선수목록();
+		List<OutPlayerListDto> outPlayerList = outPlayerService.퇴출선수목록();
 		model.addAttribute("outPlayerList",outPlayerList);
 		return "/outPlayer/saveForm";
 	}

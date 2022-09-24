@@ -6,7 +6,7 @@
 	namespace="site.metacoding.test.domain.outPlayer.OutPlayerDao">
 
 	<select id="findAll"
-		resultType="site.metacoding.test.web.dto.response.player.OutPlayerList">
+		resultType="site.metacoding.test.web.dto.response.player.OutPlayerListDto">
 		SELECT
 		p.id,
 		p.teamId ,
@@ -23,7 +23,7 @@
 	</select>
 
 	<select id="findAllByTeamId"
-		resultType="site.metacoding.test.web.dto.response.player.OutPlayerList">
+		resultType="site.metacoding.test.web.dto.response.player.OutPlayerListDto">
 		SELECT
 		p.id,
 		p.teamId ,

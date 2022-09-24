@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ import site.metacoding.test.web.dto.request.player.PlayerSaveDto;
 import site.metacoding.test.web.dto.request.player.PlayerUpdateDto;
 import site.metacoding.test.web.dto.request.team.TeamSaveDto;
 import site.metacoding.test.web.dto.response.CMRespDto;
-import site.metacoding.test.web.dto.response.player.OutPlayerList;
+import site.metacoding.test.web.dto.response.player.OutPlayerListDto;
 import site.metacoding.test.web.dto.response.player.PlayerListDto;
 import site.metacoding.test.web.dto.response.team.TeamListDto;
 
@@ -63,5 +64,11 @@ public class PlayerController {
 		Player playerPS = playerService.선수한명보기(id);
 		playerService.선수수정(id, playerUpdateDto);
 		return new CMRespDto<>(1, "선수 수정 성공", null);
+	}
+	
+	@DeleteMapping("/player/delete/{id}")
+	public @ResponseBody CMRespDto<?> playerDelete(@PathVariable Integer id){
+		playerService.선수삭제(id);
+		return new CMRespDto<>(1, "선수 삭제 성공", null);
 	}
 }
