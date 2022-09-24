@@ -31,31 +31,31 @@ public class TeamController {
 
 
 
-	@GetMapping("/team/teamList")
+	@GetMapping("/team/list")
 	public String teamList(Model model) {
 		List<TeamListDto> teamList = teamService.팀목록보기();
 		model.addAttribute("teamList", teamList);
-		return "team/teamList";
+		return "team/list";
 	}
 	
-	@GetMapping("/team/teamSaveForm")
+	@GetMapping("/team/saveForm")
 	public String teamSaveForm(Model model) {
 		List<TeamListDto> teamList = teamService.팀목록보기();
 		model.addAttribute("teamList", teamList);
-		return"team/teamSaveForm";
+		return"team/saveForm";
 	}
 	
-	@PostMapping("/team/teamSave")
+	@PostMapping("/team/save")
 	public @ResponseBody CMRespDto<?> teamSave(@RequestBody TeamSaveDto teamSaveDto){
 		teamService.팀추가(teamSaveDto);
 		return new CMRespDto<>(1, "팀 등록 성공", null);
 	}
 	
-	@GetMapping("/team/teamPositionList")
+	@GetMapping("/team/positionList")
 	public String teamPositionList(Model model) {
 		List<TeamPositionDto> teamPositionList = teamService.팀별포지션목록();
 		model.addAttribute("teamPositionList",teamPositionList);
-		return "team/teamPositionList";
+		return "team/positionList";
 	}
 	
 	@GetMapping("/team/updateForm/{id}")

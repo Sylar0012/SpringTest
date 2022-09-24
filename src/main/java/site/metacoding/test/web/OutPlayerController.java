@@ -25,22 +25,22 @@ public class OutPlayerController {
 	
 	private final OutPlayerService outPlayerService;
 	
-	@GetMapping("/player/outPlayerList/{teamId}")
-	public String outPlayerList(@PathVariable Integer teamId, Model model) {
-		List<OutPlayerList> outPlayerList = outPlayerService.팀별퇴출선수목록(teamId);
+	@GetMapping("/outPlayer/list/{id}")
+	public String outPlayerList(@PathVariable Integer id, Model model) {
+		List<OutPlayerList> outPlayerList = outPlayerService.팀별퇴출선수목록(id);
 		model.addAttribute("outPlayerList",outPlayerList);
-		return "player/outPlayerList";
+		return "outPlayer/list";
 	}
 	
-	@GetMapping("/player/playerOutForm")
+	@GetMapping("/outPlayer/saveForm")
 	public String playerOutForm(Model model) {
 		List<OutPlayerList> outPlayerList = outPlayerService.퇴출선수목록();
 		model.addAttribute("outPlayerList",outPlayerList);
-		return "/player/playerOutForm";
+		return "/outPlayer/saveForm";
 	}
 	
-	@PostMapping("/player/outPlayer")
-	public @ResponseBody CMRespDto<?> playerOut(@RequestBody OutPlayerSaveDto outPlayerSaveDto){
+	@PostMapping("/outPlayer/out/{id}")
+	public @ResponseBody CMRespDto<?> playerOut(@PathVariable Integer id, @RequestBody OutPlayerSaveDto outPlayerSaveDto){
 		outPlayerService.선수퇴출(outPlayerSaveDto);
 		return new CMRespDto<>(1, "선수 퇴출 이유 등록 성공", null);
 	}

@@ -29,21 +29,21 @@ public class PlayerController {
 	
 	private final PlayerService playerService;
 	
-	@GetMapping("/player/playerList")
+	@GetMapping("/player/list")
 	public String playerList(Model model) {
 		List<PlayerListDto> playerList = playerService.선수목록보기();
 		model.addAttribute("playerList",playerList);
-		return "player/playerList";
+		return "player/list";
 	}
 	
-	@GetMapping("/player/playerSaveForm")
+	@GetMapping("/player/saveForm")
 	public String playerSaveForm(Model model) {
 		List<PlayerListDto> playerList = playerService.선수목록보기();
 		model.addAttribute("playerList",playerList);
-		return "player/playerSaveForm";
+		return "player/saveForm";
 	}
 	
-	@PostMapping("/player/playerSave")
+	@PostMapping("/player/save")
 	public @ResponseBody CMRespDto<?> playerSave(@RequestBody PlayerSaveDto playerSaveDto){
 		playerService.선수추가(playerSaveDto);
 		return new CMRespDto<>(1, "선수 등록 성공", null);
@@ -55,7 +55,7 @@ public class PlayerController {
 		Player player = playerService.선수한명보기(id);
 		model.addAttribute("playerList",playerList);
 		model.addAttribute("player",player);
-		return "player/playerUpdateForm";
+		return "player/updateForm";
 	}
 	
 	@PutMapping("/player/update/{id}")

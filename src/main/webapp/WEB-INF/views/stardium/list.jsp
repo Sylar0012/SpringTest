@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container mt-3">
+<div class="container mt-3" style="text-align: center;">
 	<h2 style="text-align: center">경기장 목록</h2>
 	<table class="table table-bordered">
 		<thead>
@@ -17,7 +17,7 @@
 		<tbody>
 			<form>
 				<c:forEach var="stadium" items="${stadiumList}">
-					<tr style="text-align: center;">
+					<tr>
 						<td>${stadium.id }</td>
 						<td>${stadium.name }</td>
 						<td>${stadium.createdAt }</td>
@@ -27,7 +27,7 @@
 						</label></td>
 					</tr>
 				</c:forEach>
-				<button style="float: right; margin-right: 40px;" id="btnDelete"
+				<button onclick="getCheckboxValue()" style="float: right; margin-right: 40px;" id="btnDelete"
 					type="button" class="btn btn-primary">삭제</button>
 				<br />
 			</form>
@@ -35,18 +35,5 @@
 	</table>
 </div>
 
-<script >
-$("#btnDelete").click(()=>{
-	 function jqueryTest() {
-		    let str = "";  
-		    $("input[id=stadiumId]:checked").each(function (index) {  
-		        str += $(this).val() + ",";  
-		    });  
-		    alert(str); // checked 된 값을 출력
-		  }
-})
-
-
-</script>
 
 <%@ include file="../layout/footer.jsp"%>

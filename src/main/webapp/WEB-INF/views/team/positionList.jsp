@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container mt-3">
+<div class="container mt-3" style="text-align: center;">
   <h2 style="text-align: center">팀 목록</h2>           
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>포지션</th>
         <th>두산</th>
-        <th>nc</th>
+        <th>NC</th>
         <th>롯데</th>
       </tr>
     </thead>

@@ -19,6 +19,7 @@
 		RIGHT OUTER JOIN team t ON p.teamId
 		= t.id
 		LEFT OUTER JOIN outplayer ou ON ou.playerId=p.id
+		ORDER BY teamId ASC
 	</select>
 
 	<select id="findAllByTeamId"
@@ -38,6 +39,7 @@
 		WHERE p.teamId =
 		#{teamId}
 	</select>
+	
 	<insert id="insert">
 		INSERT into OutPlayer( playerId, reason,
 		createdAt)

@@ -33,8 +33,8 @@
 				playerId : $("#player option:selected").val(),
 				reason : $("#reason").val()
 		};
-		
-		$.ajax("/player/outPlayer",{
+		let id = $("#player option:selected").val();
+		$.ajax("/outPlayer/out/"+id,{
 			type : "POST",
 			dataType :"json",
 			data: JSON.stringify(data),
@@ -44,7 +44,7 @@
 		}).done((res) => {
 			if (res.code == 1) {
 				alert("퇴출 사유 입력 성공");
-				location.href = "/player/outPlayerList/1";
+				location.href = "/outPlayer/list/1";
 			}
 		});
 	}

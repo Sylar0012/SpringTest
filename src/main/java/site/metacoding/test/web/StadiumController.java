@@ -28,19 +28,19 @@ public class StadiumController {
 
 	private final StadiumService stadiumService;
 
-	@GetMapping("/stardium/stardiumList")
+	@GetMapping({"/stardium/list","/"})
 	public String getStadiumList(Model model) {
 		List<Stadium> stadiumList = stadiumService.경기장목록보기();
 		model.addAttribute("stadiumList", stadiumList);
-		return "/stardium/stardiumList";
+		return "/stardium/list";
 	}
 
-	@GetMapping("/stardium/stardiumSaveForm")
+	@GetMapping("/stardium/saveForm")
 	public String stardiumSaveForm() {
-		return "/stardium/stardiumSaveForm";
+		return "/stardium/saveForm";
 	}
 
-	@PostMapping("/stadium/stardiumSave")
+	@PostMapping("/stadium/save")
 	public @ResponseBody CMRespDto<?> stardiumSave(@RequestBody StadiumSaveDto stadiumInsertDto) {
 		stadiumService.경기장추가(stadiumInsertDto);
 		return new CMRespDto<>(1, "경기장 등록 성공", null);
@@ -50,7 +50,7 @@ public class StadiumController {
 	public String stadiumUpdateForm(@PathVariable Integer id, Model model) {
 		Stadium stadium = stadiumService.경기장한건보기(id);
 		model.addAttribute("stadium", stadium);
-		return "/stardium/stardiumUpdateForm";
+		return "/stardium/updateForm";
 	}
 
 	@PutMapping("/stadium/update/{id}")

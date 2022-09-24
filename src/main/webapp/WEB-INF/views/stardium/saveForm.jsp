@@ -16,6 +16,7 @@
 	</form>
 </div>
 <script>
+
 	$("#btnInsert").click(()=>{
 		stardiumSave();
 	});
@@ -25,7 +26,7 @@
 				name : $("#stadiumName").val()
 		};
 		
-		$.ajax("/stadium/stardiumSave",{
+		$.ajax("/stadium/save",{
 			type : "POST",
 			dataType :"json",
 			data: JSON.stringify(data),
@@ -35,7 +36,7 @@
 		}).done((res) => {
 			if (res.code == 1) {
 				alert("경기장 등록 성공");
-				location.href = "/stardium/stardiumList";
+				location.href = "/stardium/list";
 			}
 		});
 	}

@@ -17,6 +17,7 @@
 	</form>
 </div>
 <script>
+
 	$("#btnUpdate").click(()=>{
 		stardiumUpdate();
 	});
@@ -38,7 +39,7 @@
 		}).done((res) => {
 			if (res.code == 1) {
 				alert("경기장 수정 성공");
-				location.href = "/stardium/stardiumList";
+				location.href = "/stardium/list";
 			}
 		});
 	}

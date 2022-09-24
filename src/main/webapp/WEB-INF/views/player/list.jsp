@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 
-<div class="container mt-3">
+<div class="container mt-3" style="text-align: center;">
 	<h2 style="text-align: center">선수 목록</h2>
 	<table class="table table-bordered">
 		<thead>
@@ -20,7 +20,8 @@
 			<form>
 				<c:forEach var="player" items="${playerList}">
 					<tr>
-						<td>${player.id }</td>
+						<c:set var="count" value="${count+1}" />
+						<td>${count }</td>
 						<td>${player.name }</td>
 						<td>${player.teamname}</td>
 						<td>${player.position}</td>

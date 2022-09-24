@@ -3,11 +3,12 @@
 <%@ include file="../layout/header.jsp"%>
 
 <br />
-<h2 style="text-align: center">선수 등록</h2>
+<h2 style="text-align: center">선수 수정</h2>
 <br />
 <div class="container">
 	<form>
 		<div class="d-flex justify-content-center">
+		<input id="playerId" type="hidden" value="${player.id }">
 			<select id="team">
 				<option value="none">== 팀 선택 ==</option>
 				<c:forEach var="playerList" items="${playerList}">
@@ -21,29 +22,44 @@
 				</c:forEach>
 			</select>
 			<div style="width: 300px">
-				<input id="playerName" class="form-control" placeholder="선수이름 작성" />
+				<input id="playerName" class="form-control" placeholder="선수이름 작성" value="${player.name}"/>
 			</div>
-			<button id="btnSave" type="button" class="btn btn-primary">등록</button>
+			<button id="btnUpdate" type="button" class="btn btn-primary">등록</button>
 		</div>
 	</form>
 </div>
 
-<script>
-	$("#btnSave").click(()=>{
-		playerSave();
+<script >
+
+let foundedinputsTeam = [];
+$("select[id=team] option").each(function() {
+  if($.inArray(this.value, foundedinputsTeam) != -1) $(this).remove();
+  foundedinputsTeam.push(this.value);
+});
+
+let foundedinputsPosition = [];
+$("select[id=position] option").each(function() {
+  if($.inArray(this.value, foundedinputsPosition) != -1) $(this).remove();
+  foundedinputsPosition.push(this.value);
+});
+
+
+	$("#btnUpdate").click(()=>{
+		playerUpdate();
 	});
 	
 
-	function playerSave(){
+	function playerUpdate(){
 
 		let data = {
 				name : $("#playerName").val(),
 				teamId : $("#team option:selected").val(),
 				position : $("#position option:selected").val()
 		};
-		
-		$.ajax("/player/playerSave",{
-			type : "POST",
+		console.log(data);
+		let id = $("#playerId").val();
+		$.ajax("/player/update/"+id,{
+			type : "PUT",
 			dataType :"json",
 			data: JSON.stringify(data),
 			headers: {
@@ -51,8 +67,8 @@
 			}
 		}).done((res) => {
 			if (res.code == 1) {
-				alert("선수 등록 성공");
-				location.href = "/player/playerList";
+				alert("선수 수정 성공");
+				location.href = "/player/list";
 			}
 		});
 	}
